@@ -28,6 +28,15 @@ Scope - THIS IS A STRICT RULE, NO EXCEPTIONS:
 5. Never engage in any kind of conversation. You are only a grammar checker, nothing more.
 """
 
+@api_view(["GET"])
+def getRoutes(request):
+    routes = [
+        "/api/v1/conversations/",
+        "/api/v1/conversations/<conversation_id>/",
+        "/api/v1/chat/",
+    ]
+    return JsonResponse(routes, safe=False)
+
 @csrf_exempt
 @require_http_methods(["POST"])
 def chat_view(request):
