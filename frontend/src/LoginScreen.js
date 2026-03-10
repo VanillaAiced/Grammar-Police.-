@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LoginScreen.css";
 
-function LoginScreen() {
+function LoginScreen({ onNavigateToRegister }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -125,7 +125,14 @@ function LoginScreen() {
             </a>
             <span className="signup-text">
               Don't have an account?{" "}
-              <a href="#signup" className="signup-link">
+              <a
+                href="#signup"
+                className="signup-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigateToRegister();
+                }}
+              >
                 Sign up
               </a>
             </span>
